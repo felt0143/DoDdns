@@ -1,0 +1,14 @@
+﻿services:
+  do-ddns:
+    image: do-ddns:latest
+    container_name: do-ddns
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Chicago
+      - TargetDomain=example.com
+      - TargetHostName=shop.example.com
+      - DigitalOceanAccessToken=dop_v1_1234567890abcdef
+      - GetPublicIpUrl=http://ipinfo.io/ip
+      - UpdatePeriodMinutes=15
+    restart: unless-stopped
